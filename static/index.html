@@ -1,89 +1,200 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ArtMockery — Local Studio</title>
-<link rel="stylesheet" href="/static/css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖌️</text></svg>">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ArtMockery — Local Studio</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖌️</text></svg>">
 </head>
+
 <body>
-<header><div class="brand">ArtMockery <span>Local Studio</span></div><div class="local">● Runs on this Mac</div></header>
-<main>
-<aside>
-  <div class="group">
-    <h2>01 · Artwork</h2>
-    <div class="field"><label for="painting">Upload painting</label><input id="painting" type="file" accept="image/png,image/jpeg,image/webp"></div>
-    <div class="small">For best results, use a straight-on, evenly lit photo of the artwork.</div>
-  </div>
-  <div class="group">
-    <h2>02 · Wall background</h2>
-    <div class="field"><label>Built-in wall presets</label>
-      <div class="preset-grid" id="presets">
-        <button class="preset active" data-preset="warm_plaster"><span class="swatch" style="background:linear-gradient(120deg,#e6d9c6,#cdbda8)"></span><span>Warm plaster</span></button>
-        <button class="preset" data-preset="white_stucco"><span class="swatch" style="background:linear-gradient(120deg,#f7f5ee,#dcd9d0)"></span><span>White stucco</span></button>
-        <button class="preset" data-preset="limewash"><span class="swatch" style="background:linear-gradient(135deg,#e7dfd0,#cfc5b3,#e8e0d2)"></span><span>Limewash</span></button>
-        <button class="preset" data-preset="travertine"><span class="swatch" style="background:repeating-linear-gradient(0deg,#d8c6aa 0 5px,#c8b393 6px 7px,#e1d3bd 8px 13px)"></span><span>Travertine</span></button>
-        <button class="preset" data-preset="limestone"><span class="swatch" style="background:linear-gradient(135deg,#e2d9c7,#c9c0ad,#e8e0d1)"></span><span>Limestone</span></button>
-        <button class="preset" data-preset="sandstone"><span class="swatch" style="background:linear-gradient(120deg,#d5c1a3,#b59b79)"></span><span>Sandstone</span></button>
-        <button class="preset" data-preset="clay"><span class="swatch" style="background:linear-gradient(120deg,#c88f72,#a96f55,#d3a184)"></span><span>Raw clay</span></button>
-        <button class="preset" data-preset="grasscloth"><span class="swatch" style="background:repeating-linear-gradient(90deg,#c9b99b 0 2px,#d8c9ad 3px 5px),repeating-linear-gradient(0deg,#b9a988 0 1px,transparent 1px 4px)"></span><span>Grasscloth</span></button>
-        <button class="preset" data-preset="linen"><span class="swatch" style="background:repeating-linear-gradient(0deg,#e4ddd0 0 2px,#d5cdbf 3px 4px)"></span><span>Linen weave</span></button>
-        <button class="preset" data-preset="wood_slats"><span class="swatch" style="background:repeating-linear-gradient(90deg,#bc9568 0 17px,#8e6b48 18px 20px,#d3b184 21px 35px)"></span><span>Oak slats</span></button>
-        <button class="preset" data-preset="brick"><span class="swatch" style="background:repeating-linear-gradient(0deg,#b8785e 0 12px,#d7c4b4 13px 15px),repeating-linear-gradient(90deg,#b8785e 0 25px,#d7c4b4 26px 28px)"></span><span>Soft brick</span></button>
-        <button class="preset" data-preset="marble"><span class="swatch" style="background:linear-gradient(135deg,#e9e6df,#c8c8c2,#f5f1e9,#d5d0c7)"></span><span>Marble</span></button>
-        <button class="preset" data-preset="microcement"><span class="swatch" style="background:linear-gradient(135deg,#c9c7c0,#adaca6,#d5d2cb)"></span><span>Microcement</span></button>
-        <button class="preset" data-preset="concrete"><span class="swatch" style="background:linear-gradient(120deg,#bcbab4,#8e8e89)"></span><span>Concrete</span></button>
-        <button class="preset" data-preset="sage"><span class="swatch" style="background:linear-gradient(120deg,#b9c1ad,#8d9a83)"></span><span>Sage</span></button>
-        <button class="preset" data-preset="greige"><span class="swatch" style="background:linear-gradient(120deg,#d3cec4,#aaa69d)"></span><span>Greige</span></button>
+  <header>
+    <div class="brand">ArtMockery <span>Local Studio</span></div>
+    <div class="local">● Runs on this Mac</div>
+  </header>
+  <main>
+    <aside>
+      <div class="group">
+        <h2>01 · Artwork</h2>
+        <div class="field"><label for="painting">Upload painting</label><input id="painting" type="file"
+            accept="image/png,image/jpeg,image/webp"></div>
+        <div class="small">For best results, use a straight-on, evenly lit photo of the artwork.</div>
       </div>
-    </div>
-    <div class="field"><label for="wallphoto">Or upload your own wall photo</label><input id="wallphoto" type="file" accept="image/png,image/jpeg,image/webp"><div class="small">Uploading a wall photo switches to Custom photo.</div></div>
-    <div class="field"><label for="wallColor">Wall tint</label><input id="wallColor" type="color" value="#d8cbb8"></div>
-    <div class="field"><label for="tint">Tint strength <span class="value" id="tintVal">12%</span></label><input id="tint" type="range" min="0" max="70" value="12"></div>
-    <div class="field"><label for="texture">Texture intensity <span class="value" id="textureVal">45%</span></label><input id="texture" type="range" min="0" max="100" value="45"></div>
-  </div>
-  <div class="group">
-    <h2>04 · Frame</h2>
-    <div class="field"><label for="orientation">Artwork orientation</label><select id="orientation"><option value="portrait" selected>Portrait</option><option value="landscape">Landscape</option></select><div class="small">Sets the frame opening to portrait or landscape; zoom crops the artwork to fit.</div></div>
-    <div class="field"><label for="frame">Frame finish</label><select id="frame"><option value="black">Matte black</option><option value="white">Soft white</option><option value="oak" selected>Natural oak</option><option value="walnut">Walnut</option><option value="gold">Brushed gold</option><option value="custom">Custom color</option><option value="canvas">Gallery canvas (no frame)</option></select></div>
-    <div class="field"><label for="frameColor">Custom frame color</label><input id="frameColor" type="color" value="#c7a274"><div class="small">Choose any frame color; picking a color switches the finish to Custom.</div></div>
-    <div class="field"><label for="frameHighlightColor">Frame detail highlight line</label><input id="frameHighlightColor" type="color" value="#e1c59b"><div class="small">Color of the lighter accent lines that show the frame's bevel/profile depth.</div></div>
-    <div class="field"><label for="frameShadowColor">Frame detail shadow line</label><input id="frameShadowColor" type="color" value="#a98456"><div class="small">Color of the darker accent lines along the frame profile.</div></div>
-    <div class="field"><label for="frameWidth">Frame width <span class="value" id="frameWidthVal">4%</span></label><input id="frameWidth" type="range" min="1" max="9" value="4"></div>
-    <div class="field"><label for="matColor">Mat board color</label><input id="matColor" type="color" value="#f4f0e7"></div>
-    <div class="field"><label for="matWidth">Mat board width <span class="value" id="matWidthVal">8%</span></label><input id="matWidth" type="range" min="0" max="18" value="8"></div>
-    <div class="field"><label for="artWidth">Artwork width <span class="value" id="artWidthVal">100%</span></label><input id="artWidth" type="range" min="25" max="150" value="100"><div class="small">Change the framed piece width independently.</div></div>
-    <div class="field"><label for="artHeight">Artwork height <span class="value" id="artHeightVal">100%</span></label><input id="artHeight" type="range" min="25" max="150" value="100"><div class="small">Change the framed piece height independently.</div></div>
-    <div class="field"><label for="artZoom">Artwork zoom <span class="value" id="artZoomVal">100%</span></label><input id="artZoom" type="range" min="70" max="200" value="100"><div class="small">Zoom in to crop unwanted edges, or zoom out to reveal more of the image.</div></div>
-    <div class="field"><label for="artX">Move artwork left / right <span class="value" id="artXVal">0%</span></label><input id="artX" type="range" min="-40" max="40" value="0"><div class="small">Moves the artwork and frame together; the wall stays still.</div></div>
-    <div class="field"><label for="artY">Move artwork up / down <span class="value" id="artYVal">0%</span></label><input id="artY" type="range" min="-40" max="40" value="0"><div class="small">Negative moves up; positive moves down.</div></div>
-    <div class="field"><label for="shadow">Shadow strength <span class="value" id="shadowVal">35%</span></label><input id="shadow" type="range" min="0" max="100" value="35"></div>
-  </div>
-  <div class="group">
-    <h2>05 · Reusable setup</h2>
-    <div class="small config-help">Save your wall and frame settings as a reusable JSON file, then load it for another artwork. Your painting is never included.</div>
-    <div class="config-actions">
-      <button type="button" id="exportConfig">Export config</button>
-      <button type="button" id="importConfig">Import config</button>
-      <input id="configFile" type="file" accept=".json,application/json" hidden>
-    </div>
-  </div>
-  <div class="group">
-    <h2>06 · Export</h2>
-    <div class="row">
-      <div class="field"><label for="outW">Width (px)</label><input id="outW" type="number" min="800" max="6000" step="100" value="2400"></div>
-      <div class="field"><label for="outH">Height (px)</label><input id="outH" type="number" min="800" max="6000" step="100" value="2400"></div>
-    </div>
-    <div class="field"><label for="format">Format</label><select id="format"><option value="PNG">PNG (best quality)</option><option value="JPEG">JPEG (smaller file)</option></select></div>
-  </div>
-</aside>
-<section>
-  <div class="topline"><h1>Your artwork, framed</h1><div class="hint">Straight-on · No perspective distortion</div></div>
-  <div class="preview-zoom"><label for="previewZoom">Preview zoom</label><input id="previewZoom" type="range" min="50" max="200" value="100" step="10" aria-label="Preview zoom"><strong id="previewZoomVal">100%</strong></div>
-  <div class="stage"><canvas id="preview" width="900" height="900" aria-label="Mockup preview"></canvas></div>
-  <div class="actions"><div id="status">Upload a painting to begin. A sample preview is shown.</div><button id="reset">Reset settings</button><button class="primary" id="render">Render &amp; download</button></div>
-</section>
-</main>
-<script src="/static/js/app.js?v=2" defer></script>
-</body></html>
+      <div class="group">
+        <h2>02 · Wall background</h2>
+        <div class="field"><label>Built-in wall presets</label>
+          <div class="preset-grid" id="presets">
+            <button class="preset active" data-preset="warm_plaster"><span class="swatch"
+                style="background:linear-gradient(120deg,#e6d9c6,#cdbda8)"></span><span>Warm plaster</span></button>
+            <button class="preset" data-preset="white_stucco"><span class="swatch"
+                style="background:linear-gradient(120deg,#f7f5ee,#dcd9d0)"></span><span>White stucco</span></button>
+            <button class="preset" data-preset="limewash"><span class="swatch"
+                style="background:linear-gradient(135deg,#e7dfd0,#cfc5b3,#e8e0d2)"></span><span>Limewash</span></button>
+            <button class="preset" data-preset="travertine"><span class="swatch"
+                style="background:repeating-linear-gradient(0deg,#d8c6aa 0 5px,#c8b393 6px 7px,#e1d3bd 8px 13px)"></span><span>Travertine</span></button>
+            <button class="preset" data-preset="limestone"><span class="swatch"
+                style="background:linear-gradient(135deg,#e2d9c7,#c9c0ad,#e8e0d1)"></span><span>Limestone</span></button>
+            <button class="preset" data-preset="sandstone"><span class="swatch"
+                style="background:linear-gradient(120deg,#d5c1a3,#b59b79)"></span><span>Sandstone</span></button>
+            <button class="preset" data-preset="clay"><span class="swatch"
+                style="background:linear-gradient(120deg,#c88f72,#a96f55,#d3a184)"></span><span>Raw clay</span></button>
+            <button class="preset" data-preset="grasscloth"><span class="swatch"
+                style="background:repeating-linear-gradient(90deg,#c9b99b 0 2px,#d8c9ad 3px 5px),repeating-linear-gradient(0deg,#b9a988 0 1px,transparent 1px 4px)"></span><span>Grasscloth</span></button>
+            <button class="preset" data-preset="linen"><span class="swatch"
+                style="background:repeating-linear-gradient(0deg,#e4ddd0 0 2px,#d5cdbf 3px 4px)"></span><span>Linen
+                weave</span></button>
+            <button class="preset" data-preset="wood_slats"><span class="swatch"
+                style="background:repeating-linear-gradient(90deg,#bc9568 0 17px,#8e6b48 18px 20px,#d3b184 21px 35px)"></span><span>Oak
+                slats</span></button>
+            <button class="preset" data-preset="brick"><span class="swatch"
+                style="background:repeating-linear-gradient(0deg,#b8785e 0 12px,#d7c4b4 13px 15px),repeating-linear-gradient(90deg,#b8785e 0 25px,#d7c4b4 26px 28px)"></span><span>Soft
+                brick</span></button>
+            <button class="preset" data-preset="marble"><span class="swatch"
+                style="background:linear-gradient(135deg,#e9e6df,#c8c8c2,#f5f1e9,#d5d0c7)"></span><span>Marble</span></button>
+            <button class="preset" data-preset="microcement"><span class="swatch"
+                style="background:linear-gradient(135deg,#c9c7c0,#adaca6,#d5d2cb)"></span><span>Microcement</span></button>
+            <button class="preset" data-preset="concrete"><span class="swatch"
+                style="background:linear-gradient(120deg,#bcbab4,#8e8e89)"></span><span>Concrete</span></button>
+            <button class="preset" data-preset="sage"><span class="swatch"
+                style="background:linear-gradient(120deg,#b9c1ad,#8d9a83)"></span><span>Sage</span></button>
+            <button class="preset" data-preset="greige"><span class="swatch"
+                style="background:linear-gradient(120deg,#d3cec4,#aaa69d)"></span><span>Greige</span></button>
+          </div>
+        </div>
+        <div class="field"><label for="wallphoto">Or upload your own wall photo</label><input id="wallphoto" type="file"
+            accept="image/png,image/jpeg,image/webp">
+          <div class="small">Uploading a wall photo switches to Custom photo.</div>
+        </div>
+        <div class="field"><label for="wallColor">Wall tint</label><input id="wallColor" type="color" value="#d8cbb8">
+        </div>
+        <div class="field"><label for="tint">Tint strength <span class="value" id="tintVal">12%</span></label><input
+            id="tint" type="range" min="0" max="70" value="12"></div>
+        <div class="field"><label for="texture">Texture intensity <span class="value"
+              id="textureVal">45%</span></label><input id="texture" type="range" min="0" max="100" value="45"></div>
+      </div>
+      <div class="group">
+        <h2>04 · Frame</h2>
+        <div class="field"><label for="orientation">Artwork orientation</label><select id="orientation">
+            <option value="portrait" selected>Portrait</option>
+            <option value="landscape">Landscape</option>
+          </select>
+          <div class="small">Sets the frame opening to portrait or landscape; zoom crops the artwork to fit.</div>
+        </div>
+        <div class="field"><label for="frame">Frame finish</label><select id="frame">
+            <option value="black">Matte black</option>
+            <option value="white">Soft white</option>
+            <option value="oak" selected>Natural oak</option>
+            <option value="walnut">Walnut</option>
+            <option value="gold">Brushed gold</option>
+            <option value="custom">Custom color</option>
+            <option value="canvas">Gallery canvas (no frame)</option>
+          </select></div>
+
+        <div class="field">
+          <label for="woodGrainEnabled">Wood grain</label>
+          <label class="grain-toggle">
+            <input id="woodGrainEnabled" type="checkbox" checked>
+            Enable wood grain texture
+          </label>
+          <div class="small">Adds subtle grain to the frame independently of its finish. Uncheck for a smooth finish.
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="woodGrainStrength">
+            Wood grain strength
+            <span id="woodGrainStrengthVal">45%</span>
+          </label>
+          <input id="woodGrainStrength" type="range" min="0" max="100" value="45" step="1">
+          <div class="small">
+            Lower values create subtle grain; higher values create darker, sharper grain.
+          </div>
+        </div>
+
+        <div class="field"><label for="frameColor">Custom frame color</label><input id="frameColor" type="color"
+            value="#c7a274">
+          <div class="small">Choose any frame color; picking a color switches the finish to Custom.</div>
+        </div>
+        <div class="field"><label for="frameHighlightColor">Frame detail highlight line</label><input
+            id="frameHighlightColor" type="color" value="#e1c59b">
+          <div class="small">Color of the lighter accent lines that show the frame's bevel/profile depth.</div>
+        </div>
+        <div class="field"><label for="frameShadowColor">Frame detail shadow line</label><input id="frameShadowColor"
+            type="color" value="#a98456">
+          <div class="small">Color of the darker accent lines along the frame profile.</div>
+        </div>
+        <div class="field"><label for="frameWidth">Frame width <span class="value"
+              id="frameWidthVal">4%</span></label><input id="frameWidth" type="range" min="1" max="9" value="4"></div>
+        <div class="field"><label for="matColor">Mat board color</label><input id="matColor" type="color"
+            value="#f4f0e7"></div>
+        <div class="field"><label for="matWidth">Mat board width <span class="value"
+              id="matWidthVal">8%</span></label><input id="matWidth" type="range" min="0" max="18" value="8"></div>
+        <div class="field"><label for="artWidth">Artwork width <span class="value"
+              id="artWidthVal">100%</span></label><input id="artWidth" type="range" min="25" max="150" value="100">
+          <div class="small">Change the framed piece width independently.</div>
+        </div>
+        <div class="field"><label for="artHeight">Artwork height <span class="value"
+              id="artHeightVal">100%</span></label><input id="artHeight" type="range" min="25" max="150" value="100">
+          <div class="small">Change the framed piece height independently.</div>
+        </div>
+        <div class="field"><label for="artZoom">Artwork zoom <span class="value"
+              id="artZoomVal">100%</span></label><input id="artZoom" type="range" min="70" max="200" value="100">
+          <div class="small">Zoom in to crop unwanted edges, or zoom out to reveal more of the image.</div>
+        </div>
+        <div class="field"><label for="artX">Move artwork left / right <span class="value"
+              id="artXVal">0%</span></label><input id="artX" type="range" min="-40" max="40" value="0">
+          <div class="small">Moves the artwork and frame together; the wall stays still.</div>
+        </div>
+        <div class="field"><label for="artY">Move artwork up / down <span class="value"
+              id="artYVal">0%</span></label><input id="artY" type="range" min="-40" max="40" value="0">
+          <div class="small">Negative moves up; positive moves down.</div>
+        </div>
+        <div class="field"><label for="shadow">Shadow strength <span class="value"
+              id="shadowVal">35%</span></label><input id="shadow" type="range" min="0" max="100" value="35"></div>
+      </div>
+      <div class="group">
+        <h2>05 · Reusable setup</h2>
+        <div class="small config-help">Save your wall and frame settings as a reusable JSON file, then load it for
+          another artwork. Your painting is never included.</div>
+        <div class="config-actions">
+          <button type="button" id="exportConfig">Export config</button>
+          <button type="button" id="importConfig">Import config</button>
+          <input id="configFile" type="file" accept=".json,application/json" hidden>
+        </div>
+      </div>
+      <div class="group">
+        <h2>06 · Export</h2>
+        <div class="row">
+          <div class="field"><label for="outW">Width (px)</label><input id="outW" type="number" min="800" max="6000"
+              step="100" value="2400"></div>
+          <div class="field"><label for="outH">Height (px)</label><input id="outH" type="number" min="800" max="6000"
+              step="100" value="2400"></div>
+        </div>
+        <div class="field"><label for="format">Format</label><select id="format">
+            <option value="PNG">PNG (best quality)</option>
+            <option value="JPEG">JPEG (smaller file)</option>
+          </select></div>
+      </div>
+    </aside>
+    <section>
+      <div class="topline">
+        <h1>Your artwork, framed</h1>
+        <div class="hint">Straight-on · No perspective distortion</div>
+      </div>
+      <div class="preview-zoom"><label for="previewZoom">Preview zoom</label><input id="previewZoom" type="range"
+          min="50" max="200" value="100" step="10" aria-label="Preview zoom"><strong id="previewZoomVal">100%</strong>
+      </div>
+      <div class="stage"><canvas id="preview" width="900" height="900" aria-label="Mockup preview"></canvas></div>
+      <div class="actions">
+        <div id="status">Upload a painting to begin. A sample preview is shown.</div><button id="reset">Reset
+          settings</button><button class="primary" id="render">Render &amp; download</button>
+      </div>
+    </section>
+  </main>
+  <script src="/static/js/app.js?v=2" defer></script>
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 """FastAPI entry point for the local ArtMockery application."""
 import json
 from pathlib import Path
+import traceback
 from typing import Optional
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
@@ -48,4 +49,5 @@ async def render_api(
     except HTTPException:
         raise
     except Exception as exc:
+        traceback.print_exc()
         raise HTTPException(status_code=400, detail=str(exc))
